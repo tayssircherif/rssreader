@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+
     <title></title>
 
 
@@ -10,6 +10,7 @@
 
 
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <meta content="">
 
 
@@ -19,7 +20,7 @@
 
 </head>
 <body>
-    <input type="text" class="form-control row" id="search" placeholder="Search"/>
+    <input type="text" class="form-control" id="search" placeholder="Search"/>
 
     <!--conteneur-->
     <div id="dvContent"></div>
@@ -44,14 +45,13 @@
                     var link = item.link;
 
                     var description = item.description;
-                    var pubDate = item.pubDate;
+                    var d=new Date( item.pubDate);
+                    var pubDate = d.getDate()+"/"+ d.getMonth()+"/"+d.getFullYear() ;
                     var url = item.enclosure.$.url;
 
-                    $("#dvContent").append('<a class="row users"  href="' + "index2.html?title=" + title + "&link=" +
-                            link + "&description=" + description + "&pubDate=" + pubDate +
-                            "&url=" + url + '">' + '<img  class="usr_img col-sm-3" src="' + url +
-                            '">' + "<div class='usr_inf col-sm-9'> " + "<h2>" + title + "</h2>" + "<p>" + description + "</p>" +
-                            "<label class='muted'>" + pubDate + "</label>" + "</div>" + '</a>');
+                    $("#dvContent").append('<a class="row " target="_blank" href=" '+  link +'"> <img  class=" col-xs-3"   src="' + url +
+                            '">' + "<div class='col-xs-9'> " + "<h2>" + title + "</h2>" +
+                            "<label class='muted'>" + pubDate + "</label>"  + "<p>" + description + "</p>"+ "</div>" + '</a><hr>');
                 });
 
             },
@@ -64,10 +64,13 @@
 
     $("#search").on("keyup", function () {
         //valeur input
-        var value = $(this).val();
-        $("#dvContent a").show();
 
+        var value = $(this).val();
+        // les a sont affiches
+        $("#dvContent a").show();
+//
         $("#dvContent a").each(function (index, item) {
+            //
             if ($(item).find('h2').text().toLowerCase().indexOf(value.toLowerCase()) == -1) {
                 $(item).hide();
             }
@@ -76,11 +79,7 @@
 
 
 </script>
-
 </body>
 
-<style>
 
-    
-</style>
 </html>

@@ -22,9 +22,13 @@ body {
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color:#E4E4E4;
+    //mozila
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    //chrom - safri
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    //micrsoft
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+    // firefox
     background-image:-webkit-gradient(
         linear,
         left top,
@@ -37,7 +41,23 @@ body {
     font-size:12px;
     height:100%;
     margin:0px;
-    padding:20px;
+     padding:20px;
     text-transform:uppercase;
     width:100%;
+}
+a {
+    color: #ac2925;!important;
+
+}
+hr{
+    border-color: #ac2925;!important;
+
+}
+.muted{
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius:20px ;
+    padding: 5px;
+    min-width: 80px;
+    text-align: center;
 }
